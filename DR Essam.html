@@ -191,10 +191,9 @@ body {
         <i class="fas fa-phone" style="color:green;"></i> Phone
       </a>
 
-      <a href="https://wa.me/201146391460" class="link-box">
-        <i class="fab fa-whatsapp" style="color:#25D366;"></i> WhatsApp
+      <a href="#" onclick="openSmart('https://wa.me/201146391460')" class="link-box">
+<i class="fab fa-whatsapp" style="color:#25D366;"></i> WhatsApp
       </a>
-       </div>
 
     <a href="https://wa.me/201146391460?text=مرحبا%20أريد%20حجز%20جلسة" class="booking-btn">
 <i class="fas fa-calendar-check"></i> حجز جلسة
@@ -204,5 +203,26 @@ body {
       Developed by <span>Tomas Atef</span>
       </div>
     </div>
+    
+<script>
+function openSmart(url) {
+  const ua = navigator.userAgent.toLowerCase();
+
+  const isAndroid = ua.includes("android");
+  const isInApp =
+    ua.includes("instagram") ||
+    ua.includes("tiktok") ||
+    ua.includes("fbav");
+
+  if (isAndroid && isInApp) {
+    window.location.href =
+      "intent://" + url.replace("https://", "") +
+      "#Intent;scheme=https;action=android.intent.action.VIEW;end";
+  } else {
+    window.open(url, "_blank");
+  }
+}
+</script>
+    
 </body>
 </html>    
